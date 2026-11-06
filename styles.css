@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Excalidraw Replay Plugin Styles
+   Bold, high-contrast, professional broadcast color theory.
+   ========================================================================== */
+
+/* Active Canvas Recording Frame Outline */
+.excalidraw.excreplay-recording-frame,
+.workspace-leaf.mod-active .view-content.excreplay-recording-frame {
+  outline: 3px solid #ff2556 !important;
+  outline-offset: -3px;
+  box-shadow: inset 0 0 35px rgba(255, 37, 86, 0.22) !important;
+  transition: outline 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ribbon Button Recording State */
+.workspace-ribbon .side-dock-ribbon-action.is-recording {
+  color: #ff2556 !important;
+  animation: excreplay-pulse-red 1.3s infinite ease-in-out;
+}
+
+@keyframes excreplay-pulse-red {
+  0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255, 37, 86, 0.4)); }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 10px rgba(255, 37, 86, 1)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255, 37, 86, 0.4)); }
+}
+
+/* Dynamic Top-Center Floating Recording Island */
+.excreplay-recording-pill {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px;
+  background: #0f1015;
+  border: 1.5px solid #ff2556;
+  border-radius: 9999px;
+  box-shadow: 0 0 30px rgba(255, 37, 86, 0.45), 0 10px 35px rgba(0, 0, 0, 0.75);
+  font-family: var(--font-monospace, monospace);
+  user-select: none;
+  backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.excreplay-recording-pill.is-paused {
+  border-color: #ffb800;
+  box-shadow: 0 0 20px rgba(255, 184, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.75);
+}
+
+/* Glowing REC Tag */
+.excreplay-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ff2556;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.excreplay-recording-pill.is-paused .excreplay-pill-badge {
+  background: #ffb800;
+  color: #0f1015;
+}
+
+.excreplay-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: excreplay-pulse-dot 1s infinite ease-in-out;
+}
+
+.excreplay-recording-pill.is-paused .excreplay-pill-dot {
+  background-color: #0f1015;
+  animation: none;
+}
+
+@keyframes excreplay-pulse-dot {
+  0% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 0.3; transform: scale(0.85); }
+}
+
+/* Timer Display */
+.excreplay-pill-timer {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  min-width: 65px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Action Buttons */
+.excreplay-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.excreplay-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.excreplay-pill-btn.btn-stop {
+  background: #ff2556;
+  border-color: #ff2556;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.excreplay-pill-btn.btn-stop:hover {
+  background: #e01744;
+  border-color: #e01744;
+  box-shadow: 0 0 10px rgba(255, 37, 86, 0.6);
+}
+
+/* Status Bar */
+.excreplay-status-bar {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #ff2556;
+  padding: 0 6px;
+}
+
+.excreplay-status-bar:empty {
+  display: none;
+}
+
+/* ==========================================================================
+   Hybrid Frosted Glassmorphism + Material 3 Styling Tokens
+   ========================================================================== */
+
+:root {
+  --excreplay-glass-surface: var(--background-secondary);
+  --excreplay-glass-surface-subtle: var(--background-primary);
+  --excreplay-glass-border: rgba(255, 37, 86, 0.45);
+  --excreplay-glass-border-paused: rgba(255, 184, 0, 0.50);
+  --excreplay-glass-blur: blur(16px) saturate(180%);
+  --excreplay-glass-shadow: 0 0 35px rgba(255, 37, 86, 0.38), 0 12px 36px rgba(0, 0, 0, 0.70);
+  --excreplay-glass-shadow-paused: 0 0 25px rgba(255, 184, 0, 0.35), 0 12px 32px rgba(0, 0, 0, 0.70);
+}
+
+body:not(.excreplay-glassmorphic) {
+  --excreplay-glass-surface: var(--background-secondary, #202020);
+  --excreplay-glass-blur: none;
+}
+
+body.excreplay-glassmorphic .excreplay-recording-pill {
+  background: var(--excreplay-glass-surface);
+  backdrop-filter: var(--excreplay-glass-blur);
+  -webkit-backdrop-filter: var(--excreplay-glass-blur);
+  border: 1.5px solid var(--excreplay-glass-border);
+  box-shadow: var(--excreplay-glass-shadow);
+}
+
+body.excreplay-glassmorphic .excreplay-recording-pill.is-paused {
+  border-color: var(--excreplay-glass-border-paused);
+  box-shadow: var(--excreplay-glass-shadow-paused);
+}
+
+/* Material 3 Symmetrical Action Button Geometry */
+.excreplay-pill-btn {
+  border-radius: 9999px;
+  min-width: 78px;
+  text-align: center;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.excreplay-pill-btn:hover {
+  transform: translateY(-1px);
+}
+
+.excreplay-pill-btn:active {
+  transform: translateY(0);
+}
+
+/* Keep the recording controls readable with the active Obsidian theme. */
+.excreplay-recording-pill {
+  background: var(--background-secondary, #202020);
+  color: var(--text-normal);
+}
+
+.excreplay-pill-timer,
+.excreplay-pill-btn {
+  color: var(--text-normal);
+}
+
+.excreplay-pill-btn {
+  background: var(--background-modifier-hover, rgba(128, 128, 128, 0.16));
+  border-color: var(--background-modifier-border, rgba(128, 128, 128, 0.3));
+}
+
+.excreplay-pill-btn.btn-stop {
+  color: var(--text-on-accent, #fff);
+}
+
+.excreplay-pill-badge {
+  color: var(--text-on-accent, #fff);
+}
+
+.excreplay-pill-dot {
+  background-color: var(--text-on-accent, #fff);
+}
+
+.excreplay-recording-pill.is-paused .excreplay-pill-dot {
+  background-color: var(--text-normal);
+}
+
+.excreplay-status-bar,
+.workspace-ribbon .side-dock-ribbon-action.is-recording {
+  color: var(--text-error, #d93025);
+}
+
+body:not(.excreplay-glassmorphic) {
+  --excreplay-glass-surface: var(--background-secondary, #202020);
+}

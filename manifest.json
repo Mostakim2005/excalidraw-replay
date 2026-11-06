@@ -1,11 +1,12 @@
 ﻿{
-	"id": "excalidraw-replay",
-	"name": "Excalidraw Replay",
-	"version": "0.2.0",
-	"minAppVersion": "1.5.0",
-	"description": "Record audio while drawing in Excalidraw and replay the strokes in sync with the audio.",
-	"author": "Mostakim2005",
+  "id": "excalidraw-replay",
+  "name": "Excalidraw Replay",
+  "version": "0.2.0",
+  "minAppVersion": "1.5.0",
+  "description": "Record audio while drawing in Excalidraw and replay the strokes in sync with the audio.",
+  "author": "Mostakim2005",
 	"authorUrl": "https://github.com/Mostakim2005",
-	"isDesktopOnly": true
+  "isDesktopOnly": true
 }
+
 
